@@ -12,17 +12,24 @@ a1 = [3, 2, 5, 17, 1]
 
 print(insertionSort(a1))
 
-a2 = [randint(0, 3000)]
+a2 = []
+a2.append(randint(0, 3000))
 
 i = 1
+conf = True
 while i < 300:
     n = randint(0, 3000)
-    for j in range(0, len(a2) - 1):
-        if a2[j - 1] == n:
-            i = i - 1
+    for a in range(len(a2)):
+        if n < a2[a-1] or n > a2[a-1]:
+            conf = True
+        else:
+            conf = False
             break
-    a2.append(n)
-    i += 1
+    if conf == True:
+        a2.append(n)
+        i += 1
+    else:
+        i -= 1
 
 print("\n")
 print(insertionSort(a2))
